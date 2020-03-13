@@ -4,7 +4,11 @@ There are two spatiotemporal prediction models in this repository, which are use
 
 本仓库中有两个时空序列预测模型,其被用于预测2019新冠疫情在中国大陆主要城市的传播。
 
-## Data Preparation
+## Data Specification
+
+Model data is from Baidu-map migration data. In this project, we only provide mock data. Please use the migration data disclosed by baidu map or contact baidu data federation platform.
+
+The input and output of the model are described detailedly in their respective directories.
 
 模型数据来自于百度地图迁徙数据，在本项目中我们仅提供mock_data，请自行使用百度地图公开的迁徙数据或者联系使用百度数据联邦平台。
 
