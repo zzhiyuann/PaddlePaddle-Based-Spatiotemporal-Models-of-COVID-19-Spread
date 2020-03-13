@@ -17,7 +17,7 @@ Risk: 预测74个城市未来3天的新增患者数，即(74,3)的矩阵。
 预测结果将存放在 ./data/prediction.csv ，其横轴表示城市名，纵轴天数。
 
 
-** 使用方式 单次预测 **
+#### 使用方式 单次预测 
 
 1. 训练
    python train.py --use_cuda 
@@ -27,7 +27,7 @@ Risk: 预测74个城市未来3天的新增患者数，即(74,3)的矩阵。
 
 输出文件在data文件夹下（prediction.csv)
 
-** 使用方式 累积量预测**
+#### 使用方式 累积量预测
 
 1. 训练
    python train_batch.py --use_cuda 
