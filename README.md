@@ -15,7 +15,7 @@ The input and output of the model are separately explained in their respective d
 模型的输入输出在两个模型各自的目录中有详细描述。
 
 
-#### Acknowledgments and Disclaimer
+## Acknowledgments and Disclaimer
 
 The migration data for training and prediction are provided by Baidu-map during development. All the training and prediction processes are supported by the Baidu data federation platform and Baidu cloud. The models are independently designed and provided by Xiamen university. Baidu preserves an attitude of neutrality toward the prediction results of the model and has no responsibility for any related consequences. If you need to use migration data from Baidu Maps on the Baidu data federation platform, please contact lucliuji (WeChat).
 
