@@ -15,10 +15,8 @@ The input and output of the model are described detailedly in their respective d
 模型的输入输出在两个模型各自的目录中有详细描述。
 
 
-Acknowledgements and instructions
+#### Acknowledgments and instructions
 
-The user movement data for training and prediction are provided by Baidu-map. All the training and prediction processes are completed through Baidu data federation platform and Baidu cloud computing. The model design is independently provided by Xiamen university. Baidu does not take a position on the prediction results of the model and assumes no responsibility for any consequences. If you need to use baidu mobile data to communicate with the digital platform, please contact lucliuji (WeChat).
-
-鸣谢与说明
+The user movement data for training and prediction are provided by Baidu-map. All the training and prediction processes are completed through the Baidu data federation platform and Baidu cloud computing. The model design is independently provided by Xiamen university. Baidu does not take a position on the prediction results of the model and assumes no responsibility for any consequences. If you need to use Baidu mobile data to communicate with the digital platform, please contact lucliuji (WeChat).
 
 该模型训练与预测所需之用户移动数据由百度地图提供。所有训练与预测过程，均通过百度数邦平台与百度云算力完成。该模型设计由厦门大学独立提供，百度对该模型的预测结果不持立场，对使用该模型预测所造成的任何后果不承担责任。如需要使用百度移动数据与数邦平台请联系：lucliuji（微信）
