@@ -2,7 +2,7 @@
 
 This repository contains two spatiotemporal prediction models based on PaddlePaddle and Paddle Graph Learning (PGL). The two models could be used to predict the COVID-19 outbreak (the estimates of infected patients per day) in major cities of mainland China.
 
-本仓库中有两个基于PaddlePaddle以及Paddle Graph Learning (PGL) （https://github.com/PaddlePaddle/PGL）时空序列预测模型。这两个模型被用于2019新冠疫情在中国大陆主要城市传播 (每日新增人数估计) 的预测。
+本仓库中有两个基于PaddlePaddle以及Paddle Graph Learning (PGL) (https://github.com/PaddlePaddle/PGL) 时空序列预测模型。这两个模型被用于2019新冠疫情在中国大陆主要城市传播 (每日新增人数估计) 的预测。
 
 ## Data Specification
 
