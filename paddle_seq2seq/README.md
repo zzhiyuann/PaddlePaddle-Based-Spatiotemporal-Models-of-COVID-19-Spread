@@ -18,21 +18,25 @@ Risk: 预测74个城市未来3天的新增患者数，即(74,3)的矩阵。
 
 
 #### 使用方式 单次预测 
+1. 数据处理 
+	python data_process.py
 
-1. 训练
+2. 训练
    python train.py --use_cuda 
    训练和验证时会打印相应的loss日志
-2. 预测
+3. 预测
    python test.py --cuda 
 
 输出文件在data文件夹下（prediction.csv)
 
 #### 使用方式 累积量预测
+1. 数据处理 
+	python data_process.py
 
-1. 训练
-   python train_batch.py --use_cuda 
+2. 训练
+   python train.py --use_cuda 
    训练和验证时会打印相应的loss日志
-2. 预测
+3. 预测
    python test_batch.py --cuda 
 
 输出文件在：output文件夹下
