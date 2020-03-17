@@ -148,7 +148,7 @@ def model_test(exe, gw, gf, program, pred, inputs, args, phase):
             x_test, args.batch_size, args.n_his, args.n_pred, step_idx)
 
     # save result
-    cumulant = np.array(pd.read_csv("./data/confirm.csv",index_col=0))[43,1:]#43->2月13
+    cumulant = np.array(pd.read_csv("../dataset/confirm.csv",index_col=0))[43,1:]#43->2月13
     gt = x_test[0:len_test, args.n_his:, :, :].reshape(-1, args.n_route)
     y_pred = y_test.reshape(-1, args.n_route)
      for i in range(prediction.shape[0]):
