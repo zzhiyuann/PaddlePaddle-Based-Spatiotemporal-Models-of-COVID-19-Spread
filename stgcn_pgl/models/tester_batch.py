@@ -1,4 +1,4 @@
-# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.
+## Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -129,7 +129,7 @@ def model_inference(exe, gw, gf, program, pred, inputs, args, step_idx,
     return min_va_val, min_val
 
 
-def model_test(exe, gw, gf, program, pred, inputs, args):
+def model_test(exe, gw, gf, program, pred, inputs, args, phase):
     """test model"""
     if args.inf_mode == 'sep':
         # for inference mode 'sep', the type of step index is int.
@@ -141,8 +141,9 @@ def model_test(exe, gw, gf, program, pred, inputs, args):
         print(step_idx)
     else:
         raise ValueError(f'ERROR: test mode "{inf_mode}" is not defined.')
-
-    x_test, x_stats = inputs.get_data('test'), inputs.get_stats()
+    
+    x_test, x_stats = inputs.get_data(phase), inputs.get_stats()
+    print(x_test.shape, x_stats)
     y_test, len_test = multi_pred(exe, gw, gf, program, pred, \
             x_test, args.batch_size, args.n_his, args.n_pred, step_idx)
 
@@ -150,7 +151,7 @@ def model_test(exe, gw, gf, program, pred, inputs, args):
     cumulant = np.array(pd.read_csv("./data/confirm.csv",index_col=0))[43,1:]#43->2月13
     gt = x_test[0:len_test, args.n_his:, :, :].reshape(-1, args.n_route)
     y_pred = y_test.reshape(-1, args.n_route)
-    for i in range(prediction.shape[0]):
+     for i in range(prediction.shape[0]):
         if i == 0: continue
         y_pred[i,:] = y_pred[i-1,:]+y_pred[i,:]
         gt[i,:] = gt[i-1,:]+gt[i,:]
@@ -161,13 +162,13 @@ def model_test(exe, gw, gf, program, pred, inputs, args):
     city_df = city_df.drop(0)
 
     np.savetxt(
-        os.path.join(args.output_path, "groundtruth.csv"),
+        os.path.join(args.output_path, phase+"_groundtruth.csv"),
         gt.astype(np.int32),
         fmt='%d',
         delimiter=',',
         header=",".join(city_df['city']))
     np.savetxt(
-        os.path.join(args.output_path, "prediction.csv"),
+        os.path.join(args.output_path, phase+"_prediction.csv"),
         y_pred.astype(np.int32),
         fmt='%d',
         delimiter=",",
@@ -181,3 +182,4 @@ def model_test(exe, gw, gf, program, pred, inputs, args):
             print(
                 f'Time Step {i + 1}: MAPE {te[0]:7.3%}; MAE  {te[1]:4.3f}; RMSE {te[2]:6.3f}.'
             )
+    
