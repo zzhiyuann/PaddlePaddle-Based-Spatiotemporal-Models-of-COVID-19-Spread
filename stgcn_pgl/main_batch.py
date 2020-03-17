@@ -29,7 +29,7 @@ from pgl.utils.logger import log
 from data_loader.data_utils import data_gen_custom, data_gen_mydata, gen_batch
 from data_loader.graph import GraphFactory
 from models.model import STGCNModel
-from models.tester_batch import model_inference, model_test_sum
+from models.tester_batch import model_inference, model_test
 
 
 def main(args):
@@ -122,9 +122,9 @@ def main(args):
                   f'RMSE {va[2]:6.3f}, {te[2]:6.3f}.')
         
         if epoch % 5 == 0:
-            model_test_sum(exe, gw, gf, infer_program, y_pred, PeMS, args, 'train')
-            model_test_sum(exe, gw, gf, infer_program, y_pred, PeMS, args, 'val')
-            model_test_sum(exe, gw, gf, infer_program, y_pred, PeMS, args, 'test')
+            model_test(exe, gw, gf, infer_program, y_pred, PeMS, args, 'train')
+            model_test(exe, gw, gf, infer_program, y_pred, PeMS, args, 'val')
+            model_test(exe, gw, gf, infer_program, y_pred, PeMS, args, 'test')
 
 
 if __name__ == "__main__":
