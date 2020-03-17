@@ -11,13 +11,19 @@ def output_final_result(prediction, idx):
     city = pd.read_csv("./data/crawl_list.csv")
     city_list = list(city['city'])
     output = pd.read_csv("./data/output.csv",index_col=0)
+    cumulant = np.array(pd.read_csv("./data/confirm.csv",index_col=0))[43,1:]#43->2月13
     out_max = np.array(output.max())[1:]
     out_max = np.tile(out_max,Y_seq).reshape(Y_seq,feature_num)
     out_min = np.array(output.min())[1:]
     out_min = np.tile(out_min,Y_seq).reshape(Y_seq,feature_num)
     sub = out_max-out_min
     y2pre = np.reshape(prediction, (Y_seq ,feature_num))
-    prediction = pd.DataFrame(np.around(y2pre*sub)) 
+    prediction = pd.DataFrame(np.around(y2pre*sub)+out_min) 
+    for i in range(prediction.shape[0]):
+        if i == 0: continue
+        prediction[i,:] = prediction[i-1,:]+prediction[i,:]
+    for i in range(prediction.shape[0]):
+        prediction[i,:] = prediction[i,:]+ cumulant
     prediction.columns = city_list[1:]
     prediction.index = prediction.index + 1
     out_folder = 'output'
