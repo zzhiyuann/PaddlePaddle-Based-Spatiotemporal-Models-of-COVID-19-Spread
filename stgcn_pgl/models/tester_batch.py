@@ -151,11 +151,11 @@ def model_test(exe, gw, gf, program, pred, inputs, args, phase):
     cumulant = np.array(pd.read_csv("../dataset/confirm.csv",index_col=0))[43,1:]#43->2月13
     gt = x_test[0:len_test, args.n_his:, :, :].reshape(-1, args.n_route)
     y_pred = y_test.reshape(-1, args.n_route)
-     for i in range(prediction.shape[0]):
+    for i in range(y_pred.shape[0]):
         if i == 0: continue
         y_pred[i,:] = y_pred[i-1,:]+y_pred[i,:]
         gt[i,:] = gt[i-1,:]+gt[i,:]
-    for i in range(prediction.shape[0]):
+    for i in range(y_pred.shape[0]):
         y_pred[i,:] = y_pred[i,:]+ cumulant
         gt[i,:] = gt[i,:]+ cumulant
     city_df = pd.read_csv(args.city_file)
