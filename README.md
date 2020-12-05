@@ -1,4 +1,4 @@
-# PaddlePaddle-based-Spatiotemporal-models-of-COVID-19-spread
+# PaddlePaddle Based Prediction Models of COVID-19 Spread
 
 This repository contains two spatiotemporal prediction models based on PaddlePaddle and Paddle Graph Learning (PGL). The two models could be used to predict the COVID-19 outbreak (the estimates of infected patients per day) in major cities of mainland China.
 
